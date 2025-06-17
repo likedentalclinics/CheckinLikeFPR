@@ -12,4 +12,4 @@ const LIFF_ID = '2007047383-gVW8J9pn'; // LIFF ID Checkin
 const LIFF_ID1 = '2007036933-04QoEaY2'; // LIFF ID history
 const LIFF_ID2 = '2007047383-vaORNVq4'; // LIFF ID leave
 const LIFF_ID3 = '2007047383-Vw0q76Nz'; // LIFF ID ot
-const LIFF_ID4 = '2007047383-9LzDaqAg'; // LIFF ID register
+const LIFF_ID4 = '2007036933-3o74L1nX'; // LIFF ID register

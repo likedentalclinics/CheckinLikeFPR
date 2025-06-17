@@ -76,12 +76,15 @@
             <input type="text" id="edit-name" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
           </div>
           <div>
-            <label for="edit-employeeID" class="block text-sm font-medium text-gray-700">เลข ท.</label>
+            <label for="edit-employeeID" class="block text-sm font-medium text-gray-700">เลขประจำตัว</label>
             <input type="text" id="edit-employeeID" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
           </div>
           <div>
             <label for="edit-department" class="block text-sm font-medium text-gray-700">แผนก</label>
-            <input type="text" id="edit-department" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            <select id="edit-department" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+              <option value="">-- เลือกแผนก --</option>
+              <option value="คต">คต</option>
+              <option value="ผช">ผช</option>
           </div>
           <div>
             <label for="edit-vacationLeave" class="block text-sm font-medium text-gray-700">ลาพักร้อน</label>
@@ -97,15 +100,15 @@
           </div>
           <div>
             <label for="edit-ot" class="block text-sm font-medium text-gray-700">โอที</label>
-            <input type="number" id="edit-ot" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            <input type="number" id="edit-ot" class="mt-1 block w-full border border-gray-300 rounded-md p-2" readonly>
           </div>
           <div>
             <label for="edit-workStart" class="block text-sm font-medium text-gray-700">กำหนดเข้างาน</label>
-            <input type="time" id="edit-workStart" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            <input type="time" id="edit-workStart" class="mt-1 block w-full border border-gray-300 rounded-md p-2" readonly>
           </div>
           <div>
             <label for="edit-workEnd" class="block text-sm font-medium text-gray-700">กำหนดออกงาน</label>
-            <input type="time" id="edit-workEnd" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            <input type="time" id="edit-workEnd" class="mt-1 block w-full border border-gray-300 rounded-md p-2" readonly>
           </div>
           <div class="col-span-2">
             <label for="edit-imageUrl" class="block text-sm font-medium text-gray-700">URL รูปภาพ</label>

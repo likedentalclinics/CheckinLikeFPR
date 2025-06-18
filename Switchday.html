@@ -65,6 +65,7 @@
    <input type="hidden" id="selectedEmployeeName" name="selectedEmployeeName">
   <input type="hidden" id="selectedEmployeeNumber" name="selectedEmployeeNumber">
   <input type="hidden" id="selectedEmployeeEmail" name="selectedEmployeeEmail">
+   <input type="hidden" id="selectedEmployeeNickname" name="selectedEmployeeNickname">       
         </div>
         
         <div class="mt-4 mb-5">
@@ -245,6 +246,7 @@
                             <input type="checkbox" name="employeeCheckbox"
                                 data-name="${employee[2] || ''}"
                                 data-id="${employee[3] || ''}"
+                                data-nickname="${employee[13] || ''}"
                                 data-email="${employee[15] || ''}"
                                 onchange="handleCheckboxChange(this)">
                         </td>
@@ -276,10 +278,12 @@
             if (checkbox.checked) {
                 document.getElementById('selectedEmployeeName').value = checkbox.dataset.name;
                 document.getElementById('selectedEmployeeNumber').value = checkbox.dataset.id;
+              document.getElementById('selectedEmployeeNickname').value = checkbox.dataset.nickname;
                 document.getElementById('selectedEmployeeEmail').value = checkbox.dataset.email;
             } else {
                 document.getElementById('selectedEmployeeName').value = '';
                 document.getElementById('selectedEmployeeNumber').value = '';
+              document.getElementById('selectedEmployeeNickname').value = '';
                 document.getElementById('selectedEmployeeEmail').value = '';
             }
         }
@@ -308,6 +312,7 @@
     let comeDateId = document.getElementById("comeDateId");
     let offDateId = document.getElementById("offDateId");
     let titleId = document.getElementById("titleId");
+    let nicknameId = document.getElementById("nicknameId");
     let detailId = document.getElementById("detailId");
     let submitBtn = document.getElementById("submitBtn");
     let fileNameDisplay = document.getElementById("fileNameDisplay");
@@ -383,6 +388,7 @@
          managerRole: roleId.value,
           employeeName: document.getElementById('selectedEmployeeName').value,
          employeeNumber: document.getElementById('selectedEmployeeNumber').value,
+        employeeNickname: document.getElementById('selectedEmployeeNickname').value,
           employeeEmail: document.getElementById('selectedEmployeeEmail').value,
             requestType: typeId.value,
              comeDate: comeDateId.value,

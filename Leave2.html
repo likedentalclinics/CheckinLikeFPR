@@ -71,7 +71,7 @@
             <option value="ลากิจ">ลากิจ</option>
             <option value="ลาคลอด">ลาคลอด</option>
            <option value="ลาทำหมัน">ลาทำหมัน</option>
-            <option value="อื่นๆ">อื่นๆ</option>
+            <option value="ลากิจฉุกเฉิน">ลากิจฉุกเฉิน</option>
           </select>
         </div>
         <div class="mt-4 flex justify-between mb-5">
@@ -280,7 +280,7 @@
     const originalSubmitBtnText = submitBtn.innerHTML; // เก็บข้อความเดิมของปุ่ม
     const originalSubmitBtnClasses = submitBtn.className; // เก็บ class เดิมของปุ่ม
 
-      if (leaveTypeValue === "ลาป่วย" || leaveTypeValue === "อื่นๆ" || leaveTypeValue === "ลาคลอด" || leaveTypeValue === "ลาทำหมัน") {
+      if (leaveTypeValue === "ลาป่วย" || leaveTypeValue === "ลากิจฉุกเฉิน" || leaveTypeValue === "ลาคลอด" || leaveTypeValue === "ลาทำหมัน") {
         return true; 
       }
       if (!startDateValue || !endDateValue || !roleIdValue) {

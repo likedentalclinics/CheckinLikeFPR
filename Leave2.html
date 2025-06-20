@@ -61,7 +61,7 @@
     <form id="leaveForm">
       <div class="bg-white relative p-10 shadow-xl rounded-lg w-6/6 mx-auto">
       <div id="sickNote" class="block w-full text-xs text-red-500 mb-1 hidden">
-       *หลังมีใบรับรองแพทย์ ให้ลงใหม่พร้อมอัพโหลดใบ
+       *หลังมีใบรับรองแพทย์ ให้ลงใหม่พร้อมอัพโหลดใบ, ห้ามนำเอกสารเท็จเข้าระบบคอมพิวเตอร์
        </div>
         <div class="w-32 mb-5">
           <label for="typeId" class="block text-sm font-medium text-gray-700 mb-1">ประเภท</label>
@@ -71,7 +71,7 @@
             <option value="ลากิจ">ลากิจ</option>
             <option value="ลาคลอด">ลาคลอด</option>
            <option value="ลาทำหมัน">ลาทำหมัน</option>
-            <option value="ลากิจฉุกเฉิน">ลากิจฉุกเฉิน</option>
+            <option value="ลากิจหักค่าจ้าง">ลากิจหักค่าจ้าง</option>
           </select>
         </div>
         <div class="mt-4 flex justify-between mb-5">
@@ -280,7 +280,7 @@
     const originalSubmitBtnText = submitBtn.innerHTML; // เก็บข้อความเดิมของปุ่ม
     const originalSubmitBtnClasses = submitBtn.className; // เก็บ class เดิมของปุ่ม
 
-      if (leaveTypeValue === "ลาป่วย" || leaveTypeValue === "ลากิจฉุกเฉิน" || leaveTypeValue === "ลาคลอด" || leaveTypeValue === "ลาทำหมัน") {
+      if (leaveTypeValue === "ลาป่วย" || leaveTypeValue === "ลากิจหักค่าจ้าง" || leaveTypeValue === "ลาคลอด" || leaveTypeValue === "ลาทำหมัน") {
         return true; 
       }
       if (!startDateValue || !endDateValue || !roleIdValue) {

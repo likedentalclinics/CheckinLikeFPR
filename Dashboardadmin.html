@@ -288,7 +288,7 @@
         // item[0]=dateTime, [1]=รูป, [2]=ชื่อ, [3]=รหัส, [4]=สถานะ, [5]=หมายเหตุ, [8]=สถานที่
         if (!item || item.length < 9) return false;
         const formatted = formatDateTime(item[0]);
-        //const nameMatch = item[2]?.toLowerCase().includes(nameFilter);
+        const nameMatch = item[2]?.toLowerCase().includes(nameFilter);
         const empIdMatch = item[3]?.toString().includes(employeeIdFilter);
         const inMatch = inFilter && item[4] === "เข้างาน";
         const duringMatch = duringFilter && item[4] === "ระหว่างวัน";

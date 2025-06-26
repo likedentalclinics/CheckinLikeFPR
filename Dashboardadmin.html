@@ -300,7 +300,7 @@
         const dateOk = (!startObj || dateObj >= startObj) && (!endObj || dateObj <= endObj);
         const timeStr = formatted.time;
         const timeOk = (!startTime || timeStr >= startTime) && (!endTime || timeStr <= endTime);
-        return nameMatch && empIdMatch && statusMatch && dateOk && timeOk;
+        return empIdMatch && statusMatch && dateOk && timeOk;
       });
     }
 

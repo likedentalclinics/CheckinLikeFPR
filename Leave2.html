@@ -44,8 +44,8 @@
               <input type="text" class="input-field text-md bg-white text-white text-bold text-center bg-opacity-0 py-1 w-full" id="columnHData" placeholder="0" name="columnHData" readonly>
             </div>
             <div>
-              <h1 class="font-light text-white text-center text-sm">เหลือป่วย</h1>
-              <input type="text" class="input-field text-md bg-white text-white text-bold text-center bg-opacity-0 py-1 w-full" id="columnIData" placeholder="0" name="columnIData" readonly>
+              <h1 class="font-light text-white text-center text-sm">เหลือลาส/อา</h1>
+              <input type="text" class="input-field text-md bg-white text-white text-bold text-center bg-opacity-0 py-1 w-full" id="LeaveHoliday" placeholder="0" name="LeaveHoliday" readonly>
             </div>
           </div>
         </div>
@@ -53,6 +53,7 @@
         <input type="hidden" id="EmailId" name="EmailId">
         <input type="hidden" id="BeginworkdateId" name="BeginworkdateId">
         <input type="hidden" id="columnAData" name="columnAData">
+       <input type="hidden" id="columnIData" name="columnIData">
       </div>
     </div>
   </div>
@@ -72,6 +73,7 @@
             <option value="ลาคลอด">ลาคลอด</option>
            <option value="ลาทำหมัน">ลาทำหมัน</option>
             <option value="ลากิจหักค่าจ้าง">ลากิจหักค่าจ้าง</option>
+           <option value="ลากิจส/อา">ลากิจส/อา</option>
           </select>
         </div>
         <div class="mt-4 flex justify-between mb-5">
@@ -195,6 +197,7 @@
      document.getElementById('titleId').value = row[13] || '';
      document.getElementById('EmailId').value = row[15] || '';
      document.getElementById('BeginworkdateId').value = row[16] || '';
+     document.getElementById('LeaveHoliday').value = row[18] || '0';
     }
 
     function showLoading(isLoading, message = "ค้นหารายชื่อ..") {
@@ -390,6 +393,13 @@
        return false;
       }
      }
+    else if (typeIdValue === "ลากิจส/อา") {
+    const usedLeaveHoliday = parseInt(LeaveHoliday.value) || 0;
+      if ((usedLeaveHoliday - leaveDurationDays) < 0) {
+       Swal.fire('ไม่สามารถลากิจได้', `คุณได้ใช้สิทธิ์ลากิจส/อา ครบแล้ว`, 'error'); 
+       return false;
+      }
+     }
     else if (typeIdValue === "ลาป่วย") {
       if ((usedSickDays - leaveDurationDays) < 0) {
        Swal.fire('ไม่สามารถลาป่วยได้', `ลาป่วยรวมเกิน 30 วัน ให้ใช้ลาฉุกเฉิน`, 'error'); 
@@ -457,7 +467,7 @@
      const workDurationMillis = startDate.getTime() - beginWorkDate.getTime();
         const workDurationDays = Math.floor(workDurationMillis / (1000 * 60 * 60 * 24));
 
-    if (typeIdValue === "ลาพักร้อน" || typeIdValue === "ลากิจ") {
+    if (typeIdValue === "ลาพักร้อน" || typeIdValue === "ลากิจ" || typeIdValue === "ลากิจส/อา") {
         if (diffInDays < 30) { 
           Swal.fire('เงื่อนไขการแจ้งล่วงหน้า', 'สำหรับการลาพักร้อนและลากิจ กรุณาเลือกวันเริ่มต้นการลาล่วงหน้าอย่างน้อย 30 วัน', 'warning');
           return false;

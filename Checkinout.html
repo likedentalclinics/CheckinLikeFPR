@@ -742,7 +742,7 @@
       }, INACTIVITY_LIMIT);
     }
   }
-  ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach(event => {
+  ['keydown', 'touchstart', 'scroll'].forEach(event => {
     document.addEventListener(event, resetInactivityTimer, {passive: true});
   });
 

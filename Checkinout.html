@@ -767,19 +767,19 @@
 
     // จัดการขั้นตอนการทำงาน
     let currentStep = 1;
-   // ฟีเจอร์ auto close window ถ้า user ไม่ active ใน step1 ภายใน 3 นาที
+   // ฟีเจอร์ auto close window ถ้า user ไม่ active ใน step2,3 ภายใน 3 นาที
   let inactivityTimeout;
   const INACTIVITY_LIMIT = 180000; // 3 นาที (มิลลิวินาที)
 
   function resetInactivityTimer() {
     clearTimeout(inactivityTimeout);
-    if (currentStep === 1 || currentStep === 2) {
+    if (currentStep === 2 || currentStep === 3) {
       inactivityTimeout = setTimeout(() => {
       liff.closeWindow();
       }, INACTIVITY_LIMIT);
     }
   }
-  ['keydown', 'touchstart', 'scroll'].forEach(event => {
+  ['mousemove', 'mousedown','keydown', 'touchstart', 'scroll'].forEach(event => {
     document.addEventListener(event, resetInactivityTimer, {passive: true});
   });
 
@@ -791,9 +791,9 @@
       currentStep++;
       document.getElementById(`step${currentStep}`).style.display = 'block';
     // ถ้าออกจาก step1 ก็หยุดจับเวลา
-      if (currentStep !== 1) clearTimeout(inactivityTimeout);
+      if (currentStep === 1) clearTimeout(inactivityTimeout);
     // ถ้าเข้ามา step1 ใหม่ ให้จับเวลาใหม่
-      if (currentStep === 1) resetInactivityTimer();
+      if (currentStep !== 1) resetInactivityTimer();
     }
   }
   function prevStep() {
@@ -802,9 +802,9 @@
       currentStep--;
       document.getElementById(`step${currentStep}`).style.display = 'block';
       // ถ้าออกจาก step1 ก็หยุดจับเวลา
-      if (currentStep !== 1) clearTimeout(inactivityTimeout);
+      if (currentStep === 1) clearTimeout(inactivityTimeout);
       // ถ้าเข้ามา step1 ใหม่ ให้จับเวลาใหม่
-      if (currentStep === 1) resetInactivityTimer();
+      if (currentStep !== 1) resetInactivityTimer();
     }
   }
   </script>
